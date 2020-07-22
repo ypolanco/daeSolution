@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 class AuthenticationController < ApplicationController
   before_action :authorize_request, except: :login
@@ -7,7 +6,7 @@ class AuthenticationController < ApplicationController
   def login
     @user = User.find_by_username(login_params[:username])
     if @user.authenticate(login_params[:password]) # authenticate method provided by Bcrypt and 'has_secure_password'
-      @token = encode({ user_id: @user.id })
+      @token = encode(user_id: @user.id, username: @user.id)
       render json: { user: @user, token: @token }, status: :ok
     else
       render json: { errors: 'unauthorized' }, status: :unauthorized

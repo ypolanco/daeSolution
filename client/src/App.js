@@ -1,53 +1,64 @@
-import React, { Component } from 'react'
-import Header from './components/Header'
-import Main from './components/Main'
-import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
+import React, { Component } from "react";
+import {
+  loginUser,
+  registerUser,
+  verifyUser,
+  removeToken,
+} from "./services/auth";
+import Main from "./components/Main";
+import Nav from "./components/Nav";
+import { Route } from "react-router-dom";
+import "./App.css"
 
 export default class App extends Component {
   state = {
-    currentUser: null
-  }
-
-  componentDidMount() {
-    this.handleVerify()
-  }
+    currentUser: null,
+  };
 
   handleLoginSubmit = async (loginData) => {
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
-  }
+  };
 
   handleRegisterSubmit = async (registerData) => {
     const currentUser = await registerUser(registerData);
     this.setState({ currentUser });
-  }
-
-  handleLogout = () => {
-    this.setState({
-      currentUser: null
-    })
-    localStorage.clear();
-    removeToken();
-  }
+  };
 
   handleVerify = async () => {
     const currentUser = await verifyUser();
-    this.setState({ currentUser })
-  }
+    this.setState({ currentUser });
+  };
+
+  handleLogout = () => {
+    this.setState({
+      currentUser: null,
+    });
+    localStorage.clear();
+    removeToken();
+  };
+
+  componentDidMount = async () => {
+    await this.handleVerify();
+  };
 
   render() {
     return (
       <div>
-        <Header
+        <Route path="/portfolios/">
+        <Nav
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
-        />
+          />
+          </Route>
         <Main
           handleLoginSubmit={this.handleLoginSubmit}
           handleRegisterSubmit={this.handleRegisterSubmit}
+          handleVerify={this.handleVerify}
           currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
         />
       </div>
-    )
+    );
   }
 }

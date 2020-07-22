@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+
+.main-container {
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.section {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  margin: 0px 0px;
+}
+
+.add-button {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  margin: 0px 0px;
+}
+
+.add-button:hover {
+  zoom: 110%;
+}
+
+.title a {
+  text-decoration: none;
+  color: white;
+}
+
+.plus {
+  color: lime;
+}
+
+.portfolios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-family: "Ubuntu", sans-serif;
+  padding: 10px;
+  /* border: 2px solid yellow; */
+}
+.portfolios a {
+  text-decoration: none;
+  color: white;
+  padding: 6px;
+  margin: 0 auto;
+}
+.port {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  border: 1px solid lightgrey;
+  width: 370px;
+  margin: 4px 0px;
+}
+
+.port a {
+  margin: 0px;
+}
+
+.port a:active {
+  color: lime;
+  zoom: 100%;
+}
+
+.port-name {
+  text-align: center;
+  width: 90px;
+  font-size: 15px;
+  margin: 0;
+}
+.port-name p {
+  font-size: 15px;
+  margin: 0px 0px;
+}
+
+.port-name:hover {
+  color: lime;
+  zoom: 105%;
+}
+
+.port-name:active {
+  color: lime;
+  zoom: 100%;
+}
+
+.delete {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #910e0e;
+  height: 22px;
+  width: 80px;
+  border-radius: 10px;
+}
+
+.delete:hover {
+  cursor: pointer;
+  zoom: 110%;
+}
+
+.return-sign-in {
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .main-container {
+    /* border: 2px solid red; */
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+  }
+
+  .section {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin: 0px 0px;
+  }
+
+  .add-button {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    margin: 0px 0px;
+  }
+
+  .add-button:hover {
+    zoom: 110%;
+  }
+
+  .title a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .plus {
+    color: lime;
+  }
+
+  .portfolios {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-family: "Ubuntu", sans-serif;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+  }
+  .portfolios a {
+    text-decoration: none;
+    color: white;
+    padding: 6px;
+    margin: 0 auto;
+  }
+  .port {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    border: 1px solid lightgrey;
+    width: 370px;
+    margin: 4px 0px;
+  }
+
+  .port a {
+    margin: 0px;
+  }
+
+  .port a:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .port-name {
+    text-align: center;
+    width: 90px;
+    font-size: 15px;
+    margin: 0;
+  }
+  .port-name p {
+    font-size: 15px;
+    margin: 0px 0px;
+  }
+
+  .port-name:hover {
+    color: lime;
+    zoom: 105%;
+  }
+
+  .port-name:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .delete {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #910e0e;
+    height: 22px;
+    width: 80px;
+    border-radius: 10px;
+  }
+
+  .delete:hover {
+    cursor: pointer;
+    zoom: 110%;
+  }
+
+  .return-sign-in {
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+  }
+}
+@media only screen and (min-device-width: 834px) and (max-device-width: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)  {
+  .main-container {
+    /* border: 2px solid red; */
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid red; */
+  }
+
+  .section {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin: 0px 0px;
+  }
+
+  .add-button {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    margin: 0px 0px;
+  }
+
+  .add-button:hover {
+    zoom: 110%;
+  }
+
+  .title a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .plus {
+    color: lime;
+  }
+
+  .portfolios {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-family: "Ubuntu", sans-serif;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+  }
+  .portfolios a {
+    text-decoration: none;
+    color: white;
+    padding: 6px;
+    margin: 0 auto;
+  }
+  .port {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    border: 1px solid lightgrey;
+    width: 370px;
+    margin: 4px 0px;
+  }
+
+  .port a {
+    margin: 0px;
+  }
+
+  .port a:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .port-name {
+    text-align: center;
+    width: 90px;
+    font-size: 25px;
+    margin: 0;
+  }
+  .port-name p {
+    font-size: 25px;
+    margin: 0px 0px;
+  }
+
+  .port-name:hover {
+    color: lime;
+    zoom: 105%;
+  }
+
+  .port-name:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .delete {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #910e0e;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+
+  .delete:hover {
+    cursor: pointer;
+    zoom: 110%;
+  }
+
+  .return-sign-in {
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .main-container {
+
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .section {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    margin: 0px 0px;
+  }
+
+  .add-button {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    margin: 0px 0px;
+  }
+
+  .add-button:hover {
+    zoom: 110%;
+  }
+
+  .title a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .plus {
+    color: lime;
+  }
+
+  .portfolios {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-family: "Ubuntu", sans-serif;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+  }
+  .portfolios a {
+    text-decoration: none;
+    color: white;
+    padding: 6px;
+    margin: 0 auto;
+  }
+  .port {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    border: 1px solid lightgrey;
+    width: 370px;
+    margin: 4px 0px;
+  }
+
+  .port a {
+    margin: 0px;
+  }
+
+  .port a:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .port-name {
+    text-align: center;
+    width: 90px;
+    font-size: 15px;
+    margin: 0;
+  }
+  .port-name p {
+    font-size: 15px;
+    margin: 0px 0px;
+  }
+
+  .port-name:hover {
+    color: lime;
+    zoom: 105%;
+  }
+
+  .port-name:active {
+    color: lime;
+    zoom: 100%;
+  }
+
+  .delete {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #910e0e;
+    height: 22px;
+    width: 80px;
+    border-radius: 10px;
+  }
+
+  .delete:hover {
+    cursor: pointer;
+    zoom: 110%;
+  }
+
+  .return-sign-in {
+    display: flex;
+    justify-content: center;
+    font-size: 23px;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+  }
+}

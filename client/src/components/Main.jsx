@@ -1,132 +1,178 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import { getAllFlavors } from '../services/flavors';
-import { getAllFoods, createFood, deleteFood, updateFood } from '../services/foods';
-import ShowFlavors from './ShowFlavors';
-import ShowFoods from './ShowFoods';
-import CreateFood from './CreateFood';
-import UpdateFood from './UpdateFood';
-import FoodItem from './FoodItem';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import Login from "./Login";
+import {
+  getAllPortfolios,
+  createPortfolio,
+  deletePortfolio,
+  updatePortfolio,
+} from "../services/portfolio";
+import ShowPortfolios from "./ShowPortfolio";
+import Register from "./Register";
+import {
+  getAllSecurities,
+  deleteSecurities,
+  createSecurities,
+} from "../services/securities";
+import ShowSecurities from "./ShowSecurities";
+import CreateSecurity from "./CreateSecurity";
+import CreatePortfolio from "./CreatePortfolio";
+import UpdatePortfolio from "./UpdatePortfolio";
+import Nav from "./Nav";
 
 export default class Main extends Component {
   state = {
-    flavors: [],
-    foods: []
-  }
+    portfolios: [],
+    securities: [],
+  };
 
   componentDidMount() {
-    this.getFlavors();
-    this.getFoods();
+    this.getPortfolio();
+    // this.getSecurities();
   }
 
+// ===============================
+  // ========== Portfolios =========
+  // ===============================
 
-  // ============================
-  // ========== Flavors =========
-  // ============================
+  getPortfolio = async () => {
+    const portfolios = await getAllPortfolios();
+    this.setState({ portfolios });
+  };
 
-  getFlavors = async () => {
-    const flavors = await getAllFlavors();
-    this.setState({ flavors });
-  }
+  newPortfolio = async (portData) => {
+    const newPortfolio = await createPortfolio(portData);
 
-  // ============================
-  // ========== Foods ===========
-  // ============================
+    this.setState((prevState) => ({
+      portfolios: [...prevState.portfolios, newPortfolio],
+    }));
+  };
 
-  getFoods = async () => {
-    const foods = await getAllFoods();
-    this.setState({ foods });
-  }
+  destroyPortfolio = async (id) => {
+    await deletePortfolio(id);
+    this.setState((prevState) => ({
+      portfolios: prevState.portfolios.filter((port) => port.id !== id),
+    }));
+  };
 
-  postFood = async (foodData) => {
-    const newFood = await createFood(foodData);
-    this.setState(prevState => ({
-      foods: [...prevState.foods, newFood]
-    }))
-  }
+  putPortfolio = async (id, portData) => {
+    const updatePort = await updatePortfolio(id, portData);
 
-  // Our putFood method shoudl follow a similar pattern that we're used to.
-  // improt notes: we need an id and formData for our api call
-  // For the setState, I referenced the frontend-CRUD-design lesson
-  
-  putFood = async (id, foodData) => {
-    const updatedFood = await updateFood(id, foodData);
-    this.setState(prevState => ({
-      foods: prevState.foods.map(food => food.id === id ? updatedFood : food)
-    }))
-  }
+    this.setState((prevState) => ({
+      portfolios: prevState.portfolios.map((port) =>
+        port.id === id ? updatePort : port
+      ),
+    }));
+  };
 
-  destroyFood = async (id) => {
-    await deleteFood(id);
-    this.setState(prevState => ({
-      foods: prevState.foods.filter(food => food.id !== id)
-    }))
-  }
+ // ===============================
+  // ========== Securities =========
+  // ===============================
+
+  getSecurities = async (id) => {
+    const securities = await getAllSecurities(id);
+    this.setState({ securities });
+  };
+
+  postSecurity = async (securityData) => {
+    const newFood = await createSecurities(securityData);
+    this.setState((prevState) => ({
+      securities: [...prevState.securities, newFood],
+    }));
+  };
+
+  destroySecurity = async (id) => {
+    await deleteSecurities(id);
+    this.setState((prevState) => ({
+      securities: prevState.securities.filter((security) => security.id !== id),
+    }));
+  };
+
+  newSecurity = async (securityData) => {
+    const newSecurity = await createSecurities(securityData);
+
+    this.setState((prevState) => ({
+      securities: [...prevState.securities, newSecurity],
+    }));
+  };
 
   render() {
     return (
-      <main>
-        <Route path='/user/login' render={(props) => (
-          <Login
-            {...props}
-            handleLoginSubmit={this.props.handleLoginSubmit}
+      <>
+        <main>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Login
+                {...props}
+                handleLoginSubmit={this.props.handleLoginSubmit}
+              />
+            )}
           />
-        )} />
-        <Route path='/user/register' render={(props) => (
-          <Register
-            {...props}
-            handleRegisterSubmit={this.props.handleRegisterSubmit}
+          <Route
+            path="/user/register"
+            render={(props) => (
+              <Register
+                {...props}
+                handleRegisterSubmit={this.props.handleRegisterSubmit}
+              />
+            )}
           />
-        )} />
-        <Route path='/flavors' render={() => (
-          <ShowFlavors
-            flavors={this.state.flavors}
+          <Route
+            path="/portfolios/"
+            render={() => (
+              <ShowPortfolios
+                portfolios={this.state.portfolios}
+                destroyPortfolio={this.destroyPortfolio}
+                currentUser={this.props.currentUser}
+              />
+            )}
           />
-        )} />
-        <Route exact path='/foods' render={(props) => (
-          <ShowFoods
-            {...props}
-            foods={this.state.foods}
-            currentUser={this.props.currentUser}
-            destroyFood={this.destroyFood}
+          <Route
+            path="/portfolios/:id/edit"
+            render={(props) => {
+              const portId = props.match.params.id;
+              const portfolio = this.state.portfolios.find(
+                (port) => port.id === parseInt(portId)
+              );
+              return (
+                <UpdatePortfolio
+                  {...props}
+                  portfolios={portfolio}
+                  putPortfolio={this.putPortfolio}
+                />
+              );
+            }}
           />
-        )} />
-        <Route path='/new/food' render={(props) => (
-          <CreateFood
-            {...props}
-            postFood={this.postFood}
+          <Route
+            path="/portfolios/:id/securities"
+            render={(match) => (
+              <ShowSecurities
+                match={match}
+                securities={this.state.securities}
+                currentUser={this.props.currentUser}
+                destroySecurity={this.destroySecurity}
+                getSecurities={this.getSecurities}
+                portfolios={this.state.portfolios}
+                createSecurity={this.newSecurity}
+              />
+            )}
           />
-        )} />
-        <Route path='/food/:id/edit' render={(props) => {
-          // instead of implicitly returning righ away,
-          // we are going to first grab the id of the food we want to update.
-          // Then we are using the .find method to pull that food object
-          // from our foods array in state. We can pass the whole food obj
-          // to our UpdateFood component through props.
-          const foodId = props.match.params.id;
-          const food = this.state.foods.find(food => food.id === parseInt(foodId));
-          return <UpdateFood
-            {...props}
-            food={food}
-            putFood={this.putFood}
-          />
-        }} />
-        <Route path='/foods/:id' render={(props) => {
-          // similar to edit, we will grab the foodId 
-          // from match.params. This time, we will
-          // get the food from the backend with an
-          // api call in order to get the associated
-          // flavors
-          const foodId = props.match.params.id;
-          return <FoodItem
-            foodId={foodId}
-            flavors={this.state.flavors}
-            currentUser={this.props.currentUser}
-          />
-        }} />
-      </main>
-    )
+          <Route
+            path="/new/portfolio"
+            render={(props) => (
+              <CreatePortfolio {...props} postPortfolio={this.newPortfolio} />
+            )}
+          />{" "}
+          <Route
+            path="/new/security"
+            render={(props) => (
+              <CreateSecurity {...props} postSecurity={this.postSecurity} />
+            )}
+          />{" "}
+        </main>
+      </>
+    );
   }
 }

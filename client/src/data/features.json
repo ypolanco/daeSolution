@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Carousel in Product Detail Page",
+        "description": "It would be nice to have a carousel in the product detail page to view additional product items!",
+        "votes": 22
+    },
+    {
+        "id": 2,
+        "title": "Star Rating",
+        "description": "I would love to have a five star rating under each product on the products page or in the product detail page or both!",
+        "votes": 17
+    },
+    {
+        "id": 3,
+        "title": "Product Tags",
+        "description": "It would be cool to be able to tag products.",
+        "votes": 15
+    },
+    {
+        "id": 4,
+        "title": "Submit Bugs",
+        "description": "It would be cool if the feature board also supported bugs so I can submit any bugs I see on the website.",
+        "votes": 10
+    },
+    {
+        "id": 5,
+        "title": "Shopping Cart",
+        "description": "I would like to add products to a shopping cart!",
+        "votes": 5
+    },
+    {
+        "id": 6,
+        "title": "Purchase a Product",
+        "description": "I would like to be able to actually buy a product!",
+        "votes": 2
+    },
+    {
+        "id": 7,
+        "title": "Wishlist",
+        "description": "I would like to favorite a product!",
+        "votes": 1
+    }
+]

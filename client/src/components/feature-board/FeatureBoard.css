@@ -1,0 +1,28 @@
+.feature-board-title {
+    padding-top: 100px;
+    padding-left: 30px;
+    font-size: 20px;
+    color: rgb(56, 55, 55);
+    letter-spacing: .3px;
+}
+
+.feature-board-cards {
+    display: flex;
+    flex-direction: column;
+    max-width: 70vw;
+    margin: 30px;
+}
+
+@media (max-width: 500px) {
+    .feature-board-title {
+        padding-top: 140px;
+        margin-left: -30px;
+        margin-bottom: -140px;
+        font-size: 16px;
+    }
+    .feature-board-cards {
+        font-size: 12px;
+        margin: 0px;
+        margin-top: 140px;
+    }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ProductCreate.css'
 import Layout from './shared/Layout'
 import { Redirect } from 'react-router-dom'
-import { createProduct } from '../services/products'
+import { createProduct } from '../services/product'
 
 class ProductCreate extends Component {
     constructor() {
@@ -17,6 +17,8 @@ class ProductCreate extends Component {
             created: false
         }
     }
+
+  
 
     handleChange = (event) => {
         const { name, value } = event.target
@@ -41,7 +43,7 @@ class ProductCreate extends Component {
             return <Redirect to={`/products`} />
         }
         return (
-            <Layout>
+            <Layout user={this.props.user}>
                 <form className="create-form" onSubmit={this.handleSubmit}>
                     <input
                         className="input-name"

@@ -4,7 +4,7 @@ import Product from './Product'
 import Search from './Search'
 import { AZ, ZA, lowestFirst, highestFirst } from "./Sort"
 import Layout from './shared/Layout'
-import { getProducts } from '../services/products'
+import { getProducts } from '../services/product'
 
 class Products extends Component {
   constructor() {
@@ -71,7 +71,7 @@ class Products extends Component {
     )
 
     return (
-      <Layout>
+      <Layout user={this.props.user}>
         <Search onSubmit={this.handleSubmit} value={this.state.filterValue} onChange={this.handleSearchChange} />
         <form className="sort-container" onSubmit={this.handleSubmit}>
           <label htmlFor="sort">SORT BY:</label>

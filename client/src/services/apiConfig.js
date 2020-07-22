@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+const getToken = () => {
+    return new Promise(resolve => {
+        resolve(`Bearer ${localStorage.getItem('token') || null}`)
+    })
+}
+
 let apiUrl
 
 const apiUrls = {
@@ -16,5 +22,14 @@ if (window.location.hostname === 'localhost') {
 const api = axios.create({
     baseURL: apiUrl
 })
+
+api.interceptors.request.use(async function (options) {
+  // getToken is part of axios. 
+    options.headers['Authorization'] = await getToken()
+    return options
+}, function (error) {
+    console.log('Request error: ', error)
+    return Promise.reject(error)
+});
 
 export default api

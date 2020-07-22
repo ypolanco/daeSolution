@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ProductDetail.css'
 import Layout from './shared/Layout'
-import { getProduct, deleteProduct } from '../services/products'
+import { getProduct, deleteProduct } from '../services/product'
 import { Link } from 'react-router-dom'
 
 class ProductDetail extends Component {
@@ -25,7 +25,7 @@ class ProductDetail extends Component {
     render() {
         const { product } = this.state
         return (
-            <Layout>
+            <Layout user={this.props.user}>
                 <div className="product-detail">
                     <img className="product-detail-image" src={product.imgURL} alt={product.name} />
                     <div className="detail">

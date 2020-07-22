@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ProductEdit.css'
 import { Redirect } from 'react-router-dom'
 import Layout from './shared/Layout'
-import { getProduct, updateProduct } from '../services/products'
+import { getProduct, updateProduct } from '../services/product'
 
 class ProductEdit extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ class ProductEdit extends Component {
         }
 
         return (
-            <Layout>
+            <Layout user={this.props.user}>
                 <div className="product-edit">
                     <div className="image-container">
                         <img className="edit-product-image" src={product.imgURL} alt={product.name} />

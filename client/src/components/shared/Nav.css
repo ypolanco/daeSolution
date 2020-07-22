@@ -37,14 +37,18 @@ nav {
 
 .links {
     flex: 2;
-    max-width: 30vw;
+    max-width: 60vw;
     align-items: center;
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
 }
 
 .link {
     flex: 1;
+}
+
+.welcome {
+    padding: 0 100px;
 }
 
 a {
